@@ -45,6 +45,11 @@ module BubbleWrap
         self
       end
 
+      # For uploading photos from the library.
+      def self.any
+        @any ||= Camera.new
+      end
+
       def initialize(location = :none)
         self.location = location
       end
@@ -130,7 +135,7 @@ module BubbleWrap
 
         presenting_controller ||= App.window.rootViewController.presentedViewController # May be nil, but handles use case of container views
         presenting_controller ||= App.window.rootViewController
-        
+
         # use popover for iPad (ignore on iPhone)
         if Device.ipad? and source_type==UIImagePickerControllerSourceTypePhotoLibrary and @popover_in_view
           @popover = UIPopoverController.alloc.initWithContentViewController(picker)
