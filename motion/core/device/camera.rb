@@ -140,7 +140,6 @@ module BubbleWrap
         else
           presenting_controller.presentViewController(self.picker, animated:@options[:animated], completion: lambda {})
         end
-        presenting_controller.presentViewController(self.picker, animated:@options[:animated], completion: lambda {})
       end
 
       # iPad popover is dismissed
